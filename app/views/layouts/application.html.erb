@@ -11,6 +11,15 @@
   </head>
 
   <body>
+
+    <br><br>
+      <% if session[:user_id] == nil %>
+        <%= link_to 'Sign-Up', new_user_path %>
+      <% else %>
+        <%= link_to "Log Out", sessions_path, method:'delete' %> || 
+        User - <%= current_user.name %>
+        <img src="<%= current_user.image %>" class="profile_pic">
+      <% end %>
     <%= yield %>
   </body>
 </html>
