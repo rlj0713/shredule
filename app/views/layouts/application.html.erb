@@ -18,29 +18,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+
   <body>
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper light-blue">
         <img href="#" src="https://rmoc.com/wp-content/uploads/rmoc-rmap-hi-res-white-logo.png" class="brand-logo" style="width:100px;height:60px;"></a>
+          <% if session[:user_id] != nil %>
+            <a style="padding-left:120px;">Welcome - <%= current_user.name %></a>
+          <% end %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
+          <li><a href="/">Home</a></li>
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
           <% if session[:user_id] == nil %>
               <li><a><%= link_to 'Sign-Up', new_user_path %></a></li>
-            <% else %>
-              <li><a><%= link_to "Log Out", sessions_path, method:'delete' %></a></li>
-              <li><img style="width:50px;height:50px;" src="<%= current_user.image%>" class="profile_pic"></li>
-              <li>          </li>
-              <li><%= current_user.name %></li>
+          <% else %>
+            <li><a><%= link_to "Log Out", sessions_path, method:'delete' %></a></li>
+            <li><img style="width:50px;height:50px; margin-top:7px; margin-right: 7px;" src="<%= current_user.image%>" class="profile_pic" style="border: 1px solid black;"></li>
           <% end %>
         </ul>
       </div>
     </nav>
 
     <br><br>
-      <% if session[:user_id] == nil %>
-        <%= link_to 'Sign-Up', new_user_path %>
-      <% end %>
+      
     <%= yield %>
 
     <script type="text/javascript" src="js/materialize.min.js"></script>
