@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     def create
+        byebug
         @user = User.new do |u|
             u.username = params[:user][:username]
             u.name = params[:user][:name]
@@ -19,7 +20,6 @@ class UsersController < ApplicationController
     end
 
     def new
-        byebug
         @user = User.new
     end
 
