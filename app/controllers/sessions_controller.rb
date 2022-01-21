@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
             render :new
         end
     end
-
+    
     def new
         @user = User.find_by_id(session[:user_id])
         if session[:user_id]
