@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get "signup" => 'users#new'
   get "login" => 'sessions#new'
+  get "users" => 'users/js/materialize'
 
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
