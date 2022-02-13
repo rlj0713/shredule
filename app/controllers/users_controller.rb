@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
 
     def create
+        @default_image = 'https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png'
         @user = User.new do |u|
-            u.username = params[:user][:username]
+            u.username = params[:user][:username] || params[:user][:email]
             u.name = params[:user][:name]
             u.email = params[:user][:email]
             u.password = params[:user][:password]
-            u.image = params[:user][:image]
+            u.image = params[:user][:image] || @default_image
         end
         
         if @user.valid?

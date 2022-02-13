@@ -18,14 +18,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
-  <!-- Dropdown Structure -->
-  <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">one</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">two</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">three</a></li>
-  </ul>
 
   <body>
     <nav>
@@ -36,13 +28,12 @@
           <% end %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/">Home</a></li>
-          <!-- Dropdown Trigger -->
-          <li><a class="dropdown-trigger" data-target="dropdown1">Settings<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a href="/">Settings</a></li>
           <% if session[:user_id] == nil %>
               <li><a><%= link_to 'Sign-Up', new_user_path %></a></li>
           <% else %>
             <li><a><%= link_to "Log Out", sessions_path, method:'delete' %></a></li>
-            <li><img style="width:50px;height:50px; margin-top:7px; margin-right: 7px;" src="<%= current_user.image%>" class="profile_pic" style="border: 1px solid black;"></li>
+            <li><img style="width:50px;height:50px; margin-top:7px; margin-right: 7px;" src="<%= current_user.image %>" class="profile_pic" style="border: 1px solid black;"></li>
           <% end %>
         </ul>
       </div>
