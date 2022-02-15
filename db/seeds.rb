@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Customer.create(first_name: 'Bob', last_name: 'Dole', party_size: 3, waiver_signed: true)
+Reservation.create(customer_id: 1, sport_1: 'climbing', sport_2: 'kayaking')
