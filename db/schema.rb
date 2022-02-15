@@ -10,16 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_12_210313) do
+ActiveRecord::Schema.define(version: 2022_02_15_213556) do
 
-  create_table "admin_lists", force: :cascade do |t|
-    t.integer "user_id"
+  create_table "customers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "party_size"
+    t.boolean "waiver_signed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "admins", force: :cascade do |t|
-    t.integer "user_id"
+  create_table "reservations", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "sport_1"
+    t.string "sport_2"
+    t.datetime "trip_start"
+    t.datetime "trip_end"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
