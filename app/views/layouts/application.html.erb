@@ -27,8 +27,8 @@
             <a style="padding-left:120px;">Welcome - <%= current_user.name %></a>
           <% end %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/">Home</a></li>
-          <li><a href="/">Settings</a></li>
+          <li><a href="/reservations">Calendar</a></li>
+          <li><a href="/users/<%= current_user.id %>">Settings</a></li>
           <% if session[:user_id] == nil %>
               <li><a><%= link_to 'Sign-Up', new_user_path %></a></li>
           <% else %>
