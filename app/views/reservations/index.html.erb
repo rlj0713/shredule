@@ -1,7 +1,7 @@
 
 
 <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper grey darken-1" style="padding-left: 1%; padding-right: 60%">
         <form>
         <div class="input-field">
             <input id="search" type="search" required>
@@ -10,9 +10,9 @@
         </div>
         </form>
     </div>
+    <div class="collection" style="padding-left: 1%; padding-right: 1%">
+        <% @reservations.each do |res| %>
+        <a href="#!" class="collection-item" style="border: 1px solid #cfd8dc"><%= res.trip_start %> - <%= res.customer_id %></a>
+        <% end %>
+    </div>
 </nav>
-<div class="collection">
-    <% @reservations.each do |res| %>
-    <a href="#!" class="collection-item"><%= res.trip_start %> - <%= res.customer_id %></a>
-    <% end %>
-</div>
