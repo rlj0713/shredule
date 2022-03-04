@@ -27,11 +27,12 @@
             <a style="padding-left:120px;">Welcome - <%= current_user.name %></a>
           <% end %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/reservations">Calendar</a></li>
-          <li><a href="/users/<%= current_user.id %>">Settings</a></li>
           <% if session[:user_id] == nil %>
               <li><a><%= link_to 'Sign-Up', new_user_path %></a></li>
           <% else %>
+            <li><a href="/reservations/new">New Reservation</a></li>
+            <li><a href="/reservations">Calendar</a></li>
+            <li><a href="/users/<%= current_user.id %>">Settings</a></li>
             <li><a><%= link_to "Log Out", sessions_path, method:'delete' %></a></li>
             <li><img style="width:50px;height:50px; margin-top:7px; margin-right: 7px;" src="<%= current_user.image %>" class="profile_pic" style="border: 1px solid black;"></li>
           <% end %>
