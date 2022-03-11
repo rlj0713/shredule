@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @all_reservations = Reservation.all
+        # @all_reservations = Reservation.all
         if session[:user_id]
             @user = current_user
         end
